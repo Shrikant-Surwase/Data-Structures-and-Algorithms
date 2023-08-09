@@ -11,7 +11,7 @@ ye 1st question hai jo Backtracking ko samjne ke liye easy hai
 3)Hya problem madhe aplyala numbers dile ahet mnje we need to find the substring and then store it if the lenght==given string length
 4)Base conditions is very important if(str.size() == given.size()) then we need to add str in ans;
 ## code
-```
+```C++
 class Solution {
 public:
   void f(int id, string d, string g[], string str, vector<string>&ans){
