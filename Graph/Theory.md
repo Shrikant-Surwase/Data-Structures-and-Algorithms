@@ -123,7 +123,83 @@ Vertex 4 ->
 
 ```
 
+# Breadth First Search (BFS) algorithm:
+## Algo:
+Starting from the root, all the nodes at a particular level are visited first and then the nodes of the next level are traversed till all the nodes are visited.
 
+To do this a queue is used. All the adjacent unvisited nodes of the current level are pushed into the queue and the nodes of the current level are marked visited and popped from the queue.
+
+```C++
+// C++ code to print BFS traversal from a given
+// source vertex
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// This class represents a directed graph using
+// adjacency list representation
+class Graph {
+
+	// No. of vertices
+	int V;
+
+	// Pointer to an array containing adjacency lists
+	vector<vector<int> > adj;
+
+public:
+	// Constructor
+	Graph(int V){
+	    	this->V = V;
+	adj.resize(V);
+	}
+
+	// Function to add an edge to graph
+	void addEdge(int v, int w){
+	    	adj[v].push_back(w);
+	}
+
+	// Prints BFS traversal from a given source s
+	void BFS(int s){
+	    vector<bool>visited(V,false);
+	    visited[s]=true;
+	    queue<int>q;
+	    q.push(s);
+	    while(!q.empty()){
+	        s = q.front();
+	        q.pop();
+	        cout<<s<<" ";
+	        for(auto i: adj[s]){
+	            if(!visited[i]){
+	                visited[i]=true;
+	                q.push(i);
+	            }
+	        }
+	    }
+	}
+};
+
+
+
+// Driver code
+int main()
+{
+	// Create a graph given in the above diagram
+	Graph g(4);
+	g.addEdge(0, 1);
+	g.addEdge(0, 2);
+	g.addEdge(1, 2);
+	g.addEdge(2, 0);
+	g.addEdge(2, 3);
+	g.addEdge(3, 3);
+
+	cout << "Following is Breadth First Traversal "
+		<< "(starting from vertex 2) \n";
+	g.BFS(0);
+
+	return 0;
+}
+
+```
 
 
 
