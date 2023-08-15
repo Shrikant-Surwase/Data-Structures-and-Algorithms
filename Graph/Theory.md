@@ -67,8 +67,7 @@ adjacencyMatrix:
 ```
 ## Adjacency List Initialization code:
 ```C++
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
